@@ -59,6 +59,8 @@ fn main() {
 
     if !target.ends_with("msvc") {
         build.flag("-std=c99").flag("-pthread");
+    } else {
+        build.define("MYTHREAD_WIN95", "1");
     }
 
     if let Ok(s) = env::var("CARGO_CFG_TARGET_ENDIAN") {
